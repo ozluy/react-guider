@@ -7,7 +7,7 @@ import ReactGuiderItem from './ReactGuiderItem';
 class ReactGuider extends React.Component {
     render() {
         return (
-            <div className="WizardGuideBox initial--state">
+            <div className="WizardGuideBox WizardGuideBox--InitialState">
                 <ReactGuiderItem
                     buttonLabel='skip'
                     text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, harum?'
