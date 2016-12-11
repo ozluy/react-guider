@@ -1,4 +1,4 @@
-require('styles/App.scss');
+require('styles/Guider.scss');
 
 import React from 'react';
 import ReactGuiderItem from './ReactGuiderItem';
@@ -7,8 +7,11 @@ import ReactGuiderItem from './ReactGuiderItem';
 class ReactGuider extends React.Component {
     render() {
         return (
-            <div className="Wizard--guideBox --initialState">
-                <ReactGuiderItem />
+            <div className="WizardGuideBox initial--state">
+                <ReactGuiderItem
+                    buttonLabel='skip'
+                    text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, harum?'
+                    />
             </div>
         );
     }

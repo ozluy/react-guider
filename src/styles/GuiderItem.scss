@@ -1,0 +1,135 @@
+.GuideExpandableItem {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    border: solid 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%);
+    animation: pulse 1.5s infinite;
+    transition: all 400ms ease-out;
+    &:hover {
+        animation: none;
+    }
+    &__Icon {
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin: 0 auto;
+        border-radius: 50%;
+        text-align: center;
+        svg {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+   
+    &__Exit {
+        cursor: pointer;
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        height: 33px;
+        width: 33px;
+        background-color: rgba(255, 255, 255, 0.9);
+        right: 8%;
+        top: 10%;
+        border-radius: 50%;
+        text-align: center;
+        opacity: .8;
+        &:hover {
+            opacity: 1;
+        }
+        svg {
+            position: relative;
+            top: 45%;
+            transform: translateY(-50%);
+        }
+    }
+    &.GuideExpandableItem--Active {
+        animation: none !important;
+        cursor: unset !important;
+        .GuideExpandableItem__Icon {
+            cursor: unset !important;
+        }
+        .GuideExpandableItem__Content {
+            width: 250px !important;
+            height: 250px !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 20px;
+        }
+    }
+}
+
+.GuideExpandableItem__Content {
+        width: 0px;
+        height: 0px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0 0 0 20000px rgba(151, 151, 151, 0.25);
+        transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        visibility: hidden;
+        opacity: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        &__Info {
+            box-sizing: border-box;
+            position: relative;
+            border: solid 4px rgba(255, 255, 255, 0.9);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 50%;
+            &__BlueContent {
+                box-sizing: border-box;
+                position: absolute;
+                background-color: #4E91F7;
+                width: 100%;
+                height: 50%;
+                font-size: 14px;
+                bottom: 0;
+                padding: 15px 20px;
+                text-align: center;
+                &__Text {
+                    color: #fff;
+                }
+                &__Button {
+                    padding: 7.5px 10px;
+                    background-color: #4A65AF;
+                    border: solid 1px #4A65AF;
+                    width: 100px;
+                    margin: 0 auto;
+                    border-radius: 5px;
+                    left: 0;
+                    right: 0;
+                    text-transform: uppercase;
+                    position: absolute;
+                    bottom: 15px;
+                    color: #fff;
+                    transition: all .4s ease;
+                    cursor: pointer;
+                    outline: none;
+                    &:hover {
+                        background-color: #3A559F;
+                        border: solid 1px #3A559F;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+@keyframes pulse {
+    0% {}
+    70% {
+        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
