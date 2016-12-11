@@ -1,23 +1,21 @@
 require('styles/Guider.scss');
+import React, { PropTypes } from 'react';
 
-import React from 'react';
-import ReactGuiderItem from './ReactGuiderItem';
-
-//let yeomanImage = require('../images/yeoman.png');
 class ReactGuider extends React.Component {
     render() {
         return (
-            <div className="WizardGuideBox WizardGuideBox--InitialState">
-                <ReactGuiderItem
-                    buttonLabel='skip'
-                    text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, harum?'
-                    />
+            <div id='ReactGuider' className={this.props.isOpen ? 'ReactGuider ReactGuider--Open' : 'ReactGuider'}>
+               {
+                   this.props.children
+               }
             </div>
         );
     }
 }
 
 ReactGuider.defaultProps = {
+    isOpen: PropTypes.bool,
+    children: PropTypes.node
 };
 
 export default ReactGuider;

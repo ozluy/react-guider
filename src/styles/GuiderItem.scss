@@ -52,6 +52,7 @@
     &.GuideExpandableItem--Active {
         animation: none !important;
         cursor: unset !important;
+        z-index: 2;
         .GuideExpandableItem__Icon {
             cursor: unset !important;
         }
@@ -73,11 +74,7 @@
         box-shadow: 0 0 0 20000px rgba(151, 151, 151, 0.25);
         transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
         visibility: hidden;
-        opacity: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        opacity: 0;        
         &__Info {
             box-sizing: border-box;
             position: relative;

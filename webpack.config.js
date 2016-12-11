@@ -28,5 +28,4 @@ function buildConfig(wantedEnv) {
   let config = require(path.join(__dirname, 'cfg/' + validEnv));
   return config;
 }
-
 module.exports = buildConfig(env);
