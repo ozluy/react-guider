@@ -5,7 +5,7 @@ Guide menu for applications
 <a href="http://ozluy.github.io/projects/react-guider/"> DEMO LINK </a>
 
 #### GuiderItem props
-```
+```jsx
 onButtonClick: PropTypes.func, // Button onClick funtion inside Guider Content: onButtonClick={ () => console.log('clicked button')}
 onOpen: PropTypes.func, // Triggers when you click open button: onOpen={ () => console.log('clicked open button')}
 onClose: PropTypes.func, // Triggers when you click close button: onClose={ () => console.log('clicked close button')}
@@ -19,7 +19,7 @@ isActive: PropTypes.bool, //  state content of GuiderItem open or not: isActive=
 contentPositon: PropTypes.object // position of GuiderItem content: contentPositon={{top: '-50px',right: 'auto', bottom: 'auto',left: '-300px'}}
 ```
 #### Guider props
-```
+```jsx
 isOpen: PropTypes.bool, // state of Guider: isOpen={false}
 children: PropTypes.node
 ```
