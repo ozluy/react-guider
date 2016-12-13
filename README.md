@@ -9,7 +9,8 @@ Guide menu for applications
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ReactGuider, ReactGuiderItem } from './main';
+import { ReactGuider, ReactGuiderItem } from './lib/main';
+require('./lib/react-guider.scss');
 
 // // Render the main component into the dom
 
@@ -74,6 +75,7 @@ class App extends React.Component {
                     },
                     onButtonClick: () => {
                         this.setState({
+                            activeElement: -1,
                             isGuideOpen: false
                         })
                     }
@@ -82,25 +84,32 @@ class App extends React.Component {
             activeElement: -1
         }
     }
-    _handleOnToggle(_index) {
-        const _container = document.getElementById('ReactGuider');
-        if (_container.className !== 'ReactGuider ReactGuider--Open') {
-            _container.className = 'ReactGuider ReactGuider--Open';
-            this.setState({
-                activeElement: _index
-            });
-        }
-        else {
-            _container.className = 'ReactGuider ReactGuider--Open ReactGuider--HasActiveChildren';
-            this.setState({
-                activeElement: _index
-            });
-        }
+    _handleOnClose() {
+        this.setState({
+            activeElement: -1
+        });
+    }
+    _handleOnOpen(_index) {
+        this.setState({
+            activeElement: _index
+        });
     }
     render() {
         const _s = this.state;
         return (
-            <ReactGuider isOpen={_s.isGuideOpen}>
+            <div>
+                 {
+                    !_s.isGuideOpen
+                    &&
+                    <button
+                        className="GuideExpandableItem__Content__Info__BlueContent__Button"
+                        onClick={() => this.setState({ isGuideOpen: true })}>
+                        Restart
+                    </button>
+                }
+
+                  <ReactGuider isOpen={_s.isGuideOpen}>
+               
                 {
                     _s.listOfItems.map((_item, _index) => {
                         return (
@@ -112,7 +121,8 @@ class App extends React.Component {
                                 right={_item.right}
                                 left={_item.left}
                                 isActive={_index === _s.activeElement}
-                                onToggle={() => this._handleOnToggle.bind(this, _index)}
+                                onOpen={this._handleOnOpen.bind(this, _index)}
+                                onClose={this._handleOnClose.bind(this)}
                                 bottom={_item.bottom}
                                 contentPositon={_item.contentPositon}
                                 onButtonClick={_item.onButtonClick}
@@ -121,6 +131,8 @@ class App extends React.Component {
                     })
                 }
             </ReactGuider>
+            </div>
+          
         );
     }
 }
@@ -128,6 +140,7 @@ if (module.hot) {
     module.hot.accept();
 }
 ReactDOM.render(<App />, document.getElementById('app'));
+
 
 
 ```
