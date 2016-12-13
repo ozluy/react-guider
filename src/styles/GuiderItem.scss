@@ -107,7 +107,7 @@
                     right: 0;
                     text-transform: uppercase;
                     position: absolute;
-                    bottom: 15px;
+                    bottom: 20px;
                     color: #fff;
                     transition: all .4s ease;
                     cursor: pointer;
@@ -116,6 +116,9 @@
                         background-color: #3A559F;
                         border: solid 1px #3A559F;
                         color: #fff;
+                    }
+                    &:active, &:focus{
+                        outline: none;
                     }
                 }
             }

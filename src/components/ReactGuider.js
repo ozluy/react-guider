@@ -1,4 +1,3 @@
-require('styles/Guider.scss');
 import React, { PropTypes } from 'react';
 
 class ReactGuider extends React.Component {

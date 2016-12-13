@@ -1,0 +1,222 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  height: 1000px; }
+
+.ReactGuider {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  z-index: 10000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  display: none;
+  -webkit-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: rgba(151, 151, 151, 0.25); }
+  .ReactGuider.ReactGuider--Open {
+    display: block; }
+  .ReactGuider.ReactGuider--HasActiveChildren {
+    background-color: unset; }
+
+.GuideExpandableItem {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  border: solid 20px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-animation: pulse 1.5s infinite;
+     -moz-animation: pulse 1.5s infinite;
+       -o-animation: pulse 1.5s infinite;
+          animation: pulse 1.5s infinite;
+  -webkit-transition: all 400ms ease-out;
+  -o-transition: all 400ms ease-out;
+  -moz-transition: all 400ms ease-out;
+  transition: all 400ms ease-out; }
+  .GuideExpandableItem:hover {
+    -webkit-animation: none;
+       -moz-animation: none;
+         -o-animation: none;
+            animation: none; }
+  .GuideExpandableItem__Icon {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin: 0 auto;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
+    text-align: center; }
+    .GuideExpandableItem__Icon svg {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+         -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+           -o-transform: translateY(-50%);
+              transform: translateY(-50%); }
+  .GuideExpandableItem__Exit {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    height: 33px;
+    width: 33px;
+    background-color: rgba(255, 255, 255, 0.9);
+    right: 8%;
+    top: 10%;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
+    text-align: center;
+    opacity: .8; }
+    .GuideExpandableItem__Exit:hover {
+      opacity: 1; }
+    .GuideExpandableItem__Exit svg {
+      position: relative;
+      top: 45%;
+      -webkit-transform: translateY(-50%);
+         -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+           -o-transform: translateY(-50%);
+              transform: translateY(-50%); }
+  .GuideExpandableItem.GuideExpandableItem--Active {
+    -webkit-animation: none !important;
+       -moz-animation: none !important;
+         -o-animation: none !important;
+            animation: none !important;
+    cursor: unset !important;
+    z-index: 2; }
+    .GuideExpandableItem.GuideExpandableItem--Active .GuideExpandableItem__Icon {
+      cursor: unset !important; }
+    .GuideExpandableItem.GuideExpandableItem--Active .GuideExpandableItem__Content {
+      width: 250px !important;
+      height: 250px !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      margin: 20px; }
+
+.GuideExpandableItem__Content {
+  width: 0px;
+  height: 0px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  position: absolute;
+  -webkit-box-shadow: 0 0 0 20000px rgba(151, 151, 151, 0.25);
+     -moz-box-shadow: 0 0 0 20000px rgba(151, 151, 151, 0.25);
+          box-shadow: 0 0 0 20000px rgba(151, 151, 151, 0.25);
+  -webkit-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  visibility: hidden;
+  opacity: 0; }
+  .GuideExpandableItem__Content__Info {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    border: solid 4px rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%; }
+    .GuideExpandableItem__Content__Info__BlueContent {
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      position: absolute;
+      background-color: #4E91F7;
+      width: 100%;
+      height: 50%;
+      font-size: 14px;
+      bottom: 0;
+      padding: 15px 20px;
+      text-align: center; }
+      .GuideExpandableItem__Content__Info__BlueContent__Text {
+        color: #fff; }
+      .GuideExpandableItem__Content__Info__BlueContent__Button {
+        padding: 7.5px 10px;
+        background-color: #4A65AF;
+        border: solid 1px #4A65AF;
+        width: 100px;
+        margin: 0 auto;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        left: 0;
+        right: 0;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 20px;
+        color: #fff;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        -moz-transition: all .4s ease;
+        transition: all .4s ease;
+        cursor: pointer;
+        outline: none; }
+        .GuideExpandableItem__Content__Info__BlueContent__Button:hover {
+          background-color: #3A559F;
+          border: solid 1px #3A559F;
+          color: #fff; }
+        .GuideExpandableItem__Content__Info__BlueContent__Button:active, .GuideExpandableItem__Content__Info__BlueContent__Button:focus {
+          outline: none; }
+
+@-webkit-keyframes pulse {
+  0% { }
+  70% {
+    -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2); }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent; } }
+
+@-moz-keyframes pulse {
+  0% { }
+  70% {
+    -moz-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2);
+         box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2); }
+  100% {
+    -moz-box-shadow: 0 0 0 0 transparent;
+         box-shadow: 0 0 0 0 transparent; } }
+
+@-o-keyframes pulse {
+  0% { }
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2); }
+  100% {
+    box-shadow: 0 0 0 0 transparent; } }
+
+@keyframes pulse {
+  0% { }
+  70% {
+    -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.2); }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 transparent;
+       -moz-box-shadow: 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent; } }
